@@ -1,0 +1,67 @@
+{% extends 'dashboard/dashboard.html' %}
+
+
+{% block main %}
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <h6>Product</h6>
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">First_Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Last_name</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last_login</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+               {% for i in user %}
+              
+                <tr>
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="mb-0 text-sm">{{i.first_name}}</h6>
+                       
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{i.last_name}}</p>
+                  </td>
+
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{i.last_login}}</p>
+                  </td>
+
+                  
+
+                  
+             
+                  <td class="align-middle text-center">
+                    <a href="{% url 'userdelete' i.id %}" class="text-secondary font-weight-bold text-xs" >
+                    <span class="badge badge-sm bg-gradient-danger">Delete</span>
+                  </a>
+                  </td>
+                  </td>
+                </tr>
+                {% endfor %}
+              
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}

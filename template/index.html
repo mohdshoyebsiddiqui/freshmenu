@@ -1,0 +1,103 @@
+{% include 'partial/navbar.html' %}
+{% load cache %} 
+
+
+
+    {% block 'main' %}
+    <div class="filter-section">
+        <div class="container filter-sec">
+            <h2>CATEGORIES</h2>
+            <div class="filter">
+
+                <button id="close">Veg</button>
+                <button>price</button>
+                <span id="filter">Filters <i class="fa-solid fa-arrow-up-short-wide"></i></span>
+              
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <div class="product-section">
+            {% cache 60 category %}
+            <div class="left-cate" id="category">
+                <h2>CATEGORIES</h2>
+                <ul  id="category">
+                    <li><a href="" id="cate-one">All day breakfast</a></li>
+                    <li><a href="">Sandwiches</a></li>
+                    <li><a href="">Noodles</a></li>
+                    <li><a href="">Bowls</a></li>
+                    <li><a href="">Desserts & Beverages</a></li>
+                </ul>
+            </div>
+            {% endcache category  %}
+
+
+
+            <div class="right-products">
+                <h1>TODAY'S SURPRISE MEAL</h1>
+                <div class="product">
+
+                    {% for i in data %}
+                  
+                    <div class="card">
+                        
+                        <div class="dot">{{i.category}}</div>
+                        <a href="{% url 'singleproduct' i.id %}">
+                        <img src="{{i.image.url}}"
+                            alt="">
+                        </a>
+                        <div class="content">
+                            <a href="{% url 'singleproduct' i.id %}"> <div class="title">{{i.name}}</div></a>
+                            <div class="order">
+                                <div class="price">₹ {{i.price}} <br>
+                                    <p>10% Off <a href="{% url 'addwish' i.id %}"><i class="fa-solid fa-heart"></i></a>  </p>
+                                </div>
+
+                                <button> <a href="{% url 'cart'  i.id %}"> ADD</a></button>
+                            </div>
+
+                            <p>Available from 11:00AM</p>
+                        </div>
+                       
+                    </div>
+                   
+                    
+                    {% endfor %}
+                   
+  
+
+              
+
+
+
+
+                   
+
+                </div>
+               
+            </div>
+            
+        </div>
+        
+    </div>
+
+    </div>
+
+
+
+    {% endblock %}
+  
+
+    {% include 'partial/footer.html' %}
+
+
+
+
+
+
+
+
+

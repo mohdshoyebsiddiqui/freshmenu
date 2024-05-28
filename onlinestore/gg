@@ -1,0 +1,30 @@
+signup
+login
+add
+edit
+delete
+view
+search
+
+
+follow system
+    model 
+        selfuser
+        seconduser
+        status - unfollow(delete) , follow , requested
+chat
+
+
+cart (yes)
+post - like - comment (yes)
+profile - follow / unfollow (yes)
+chat system (yes)
+payment gateway
+
+authentication
+    inbuilt form
+    session
+    cookies
+    middleware
+    pagination
+    mixins

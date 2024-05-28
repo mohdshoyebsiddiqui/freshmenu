@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+    
+{% block 'main' %}
+<div class="signup">
+    <div class="form-box">
+        <div class="social-login">
+            <button class="facebook"><i class="fa-brands fa-facebook"></i></button>
+            <button class="google"><i class="fa-brands fa-google"></i></button>
+        </div>
+        <div class="line-text">
+            <div class="line"> </div>
+            <h5>OR USE EMAIL</h5>
+            <div class="line"> </div>
+        </div>
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            {{fm.username}}
+            {{fm.first_name}}
+            {{fm.last_name}}
+            {{fm.email}}
+            {{fm.password1}}
+            {{fm.password2}}
+
+            <button type="submit" class="signup-btn">Sign up</button>
+        </form>
+
+
+        <!-- <input type="text" placeholder="First Name">
+        <input type="text" placeholder="Last Name"> -->
+        <!-- <input type="text" placeholder="10 digits Mobile No."> -->
+        <!-- <input type="email" placeholder="Email">
+        <input type="text" placeholder="Password">
+        <button class="signup-btn">Sign up</button> -->
+        <div class="bottom-line"> </div>
+        <p>Already have an account?<span> Log in</span></p>
+    </div>
+</div>
+{% endblock %}
+
+
+

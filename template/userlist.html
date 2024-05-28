@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+
+{% block 'main' %}
+<div class="container">
+    <div class="profile ">
+        <div class="profile-nav order-nav">
+            <img src="https://i.pinimg.com/736x/ba/d7/86/bad786dfe4f227555be6fa2484b0b9a3.jpg" alt="">
+            <h2>Arvaz</h2>
+            <ul>
+                <li><a href=""><i class="fa-regular fa-user"></i> Profile</a></li>
+                <li><a href=""><i class="fa-solid fa-clock-rotate-left"></i> Order History</a></li>
+            </ul>
+        </div>
+        <div class="order">
+            <p>Basic Info</p>
+            <table class="">
+                <tr>
+                    <th ></th>
+                    <th >Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Status</th>
+                </tr>
+
+
+                {% for i in data %}
+
+                <tr>
+                    <td><img src="https://d3gy1em549lxx2.cloudfront.net/45605478-7a8f-43e9-a34d-73d950964989.jpg" alt=""></td>
+                    <td>{{i.username}}</td>
+                    <td>{{i.first_name}}</td>
+                    <td>{{i.last_name}}</td>
+                    <td>       <form action="{% url 'follow' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="followers" value="{{ i.username|escape }}">
+                        <button type="submit">Follow</button>
+                    </form></td>
+                </tr>
+
+                 {% endfor %}
+
+
+              
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

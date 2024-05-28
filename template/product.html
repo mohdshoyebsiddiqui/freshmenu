@@ -1,0 +1,130 @@
+{% extends 'index.html' %}
+
+
+
+
+
+{% block 'main' %}
+<div class="container">
+
+    <div class="single-product">
+        <div class="single-left">
+            <img src="{{data.image.url}}" alt="">
+            <ul class="social-icon">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </ul>
+        </div>
+        <div class="single-right">
+            <h2>{{ data.name }}</h2>
+            <p class="cont">{{ data.category }}</p>
+            <div class="price"> ₹ {{data.price}} </div>
+            <button>ADD<sup>+</sup></button>
+            <p class="btn-bottom">Customisable</p>
+            <h2>DETAILS ABOUT THIS MEAL</h2>
+            <p>{{ data.des}}
+            </p>
+            <h2>INGREDIENTS</h2>
+            <p>
+                {{ data.INGREDIENTS }}
+            </p>
+            <h2>NUTRITION</h2>
+            <div class="nutri">
+                <div class="nutri-box">
+                    <h1>436</h1>
+                    <p>ENERGY (KCAL)</p>
+                </div>
+                <div class="nutri-box">
+                    <h1>32
+                    </h1>
+                    <p>Fat (g)
+                    </p>
+                </div>
+                <div class="nutri-box">
+                    <h1>18
+                    </h1>
+                    <p>Carbs (g)
+                    </p>
+                </div>
+                <div class="nutri-box">
+                    <h1> 3
+                    </h1>
+                    <p>Fiber (g)
+                    </p>
+                </div>
+                <div class="nutri-box">
+                    <h1>20
+                    </h1>
+                    <p>Protein (g)
+                    </p>
+                </div>
+                <div class="nutri-box">
+                    <h1>0
+                    </h1>
+                    <p>Sugar(g)
+
+                    </p>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+
+    </div>
+    <style>
+        .comment {
+            width: 100%;
+            padding-block: 100px;
+            padding-inline: 40px;
+            background-color: rgb(78, 122, 160);
+            text-align: right;
+        }
+
+        .comment h2 {
+            text-align: left;
+            color: aliceblue;
+
+        }
+
+        .comment h2 span {
+            color: orange;
+        }
+
+        .comment input {
+            margin-top: 50px;
+            width: 90%;
+            height: 50px;
+        }
+
+        .comment input[type="submit"] {
+            width: 200px;
+            height: 45px;
+        }
+    </style>
+
+    <div class="comment">
+
+        {% if commentdata %}
+        {% for i in commentdata %}
+        <h2> <span> {{i.user}} </span> : {{i.name}}</h2>
+        {% endfor %}
+        {% endif %}
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="comment">
+            <input type="submit" value="submit">
+        </form>
+    </div>
+
+
+
+</div>
+
+
+{% endblock %}

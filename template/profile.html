@@ -1,0 +1,59 @@
+{% extends 'index.html' %}
+
+{% block 'main' %}
+<div class="container">
+    <div class="profile">
+        <div class="profile-nav">
+            <img src="{{profiledata.profilepic.url}}" alt="">
+            <h2>{{user.first_name}}</h2>
+            <ul>
+                <li><a href=""><i class="fa-regular fa-user"></i> Profile</a></li>
+                <li><a href=""><i class="fa-solid fa-clock-rotate-left"></i> Order History</a></li>
+            </ul>
+            <a href="{% url 'profileedit' user.id %}"><button>Profile edit</button></a>
+        </div>
+        <div class="profile-details">
+            <p>Basic Info {{sessiondata}}</p>
+            <!-- {{allkey}}
+            {% for key,item in allkey %}
+                {{key}}-{{item}}
+            {% endfor %} -->
+            <table>
+                <tr>
+                    <td>USERNAME</td>
+                    <td>{{user.username}}</td>
+                </tr>
+                <tr>
+                    <td>FIRST NAME</td>
+                    <td>{{user.first_name}}</td>
+                </tr>
+
+                <tr>
+                    <td>LAST NAME</td>
+                    <td>{{user.last_name}}</td>
+                </tr>
+
+
+                <tr>
+                    <td>YOUR EMAIL</td>
+                    <td>{{user.email}}</td>
+                </tr>
+
+                <tr>
+                    <td>BIO</td>
+                    <td>{{profiledata.bio}}</td>
+                </tr>
+
+                <tr>
+                    <td>Address</td>
+                    <td>{{profiledata.address}}</td>
+                </tr>
+
+                
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+    

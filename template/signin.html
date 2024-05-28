@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block 'main' %}
+<div class="signup">
+    <div class="form-box">
+        <div class="social-login">
+            <button class="facebook"><i class="fa-brands fa-facebook"></i></button>
+            <button class="google"><i class="fa-brands fa-google"></i></button>
+        </div>
+        <div class="line-text">
+            <div class="line"> </div>
+            <h5>OR</h5>
+            <div class="line"> </div>
+        </div>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        <input type="email" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit" class="signup-btn">Log in</button>
+    </form>
+        <div class="bottom-line"> </div>
+        <p>
+            {% if messages %} 
+            <ul class="messages"> 
+            {% for message in messages %} 
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+             {% endfor %} 
+            </ul> 
+            {% endif %}
+        </p>
+        <p>Don't have an account? <span> Sign up</span></p>
+
+    </div>
+</div>
+{% endblock %}
+

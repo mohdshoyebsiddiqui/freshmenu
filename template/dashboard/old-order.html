@@ -1,0 +1,91 @@
+{% extends 'dashboard/dashboard.html' %}
+
+
+{% block main %}
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card mb-4">
+        <div class="card-header pb-0">
+          <h6>Confirmed order</h6>
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Category</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                {% for i in data %}
+                <tr>
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      <div>
+                        <img src="../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
+                      </div>
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="mb-0 text-sm">{{i.name}}</h6>
+                       
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{i.price}}</p>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{i.user}}</p>
+                  </td>
+         
+             
+                  <td class="align-middle text-center">
+                   
+                    <span class="badge badge-sm bg-gradient-info">Placed</span>
+                  </td>
+
+                  <td class="align-middle text-center">
+
+
+                    <a href="javascript:;" style="border: 1px solid grey;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Placed
+                    </a>
+
+                    <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                      <li class="mb-2">
+                        <a class="dropdown-item border-radius-md" href="{% url 'orderconfirm' i.id %}">
+                          Confirm
+                       
+                        </a>
+                      </li>
+                      <li class="mb-2">
+                        <a class="dropdown-item border-radius-md" href="{% url 'ordercancel' i.id %}">
+                          Confirm
+                       
+                        </a>
+                      </li>
+                      </ul>
+
+                   <!-- <select name=""  class="form-control" id="">
+                    <option value="" disabled selected>{{i.order_status}}</option>
+                    <a href="{% url 'orderconfirm' i.id %}"> <option value="">  Confirm </option></a>
+                    <option value=""><a href="{% url 'ordercancel' i.id %}"> Cancel </a></option>
+                   </select> -->
+                   
+                  </td>
+                </tr>
+                {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

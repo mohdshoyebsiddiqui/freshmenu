@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+
+{% block 'main' %}
+<div class="container search-box">
+
+
+    <div class="search">
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="search" class="input-box">
+        <button type="submit"><i class="fa-solid fa-search"></i> </button>
+    </form>
+    </div>
+
+    <div class="search-line">
+        <h3>SEARCH RESULT</h3>
+        <div class="line"> </div>
+    </div>
+
+</div>
+
+
+<div class="container">
+<div class="search-product">
+    <h1>' {{search}} '</h1>
+    <div class="product">
+
+        {% if data %}
+        {% for i in data %}
+        <div class="card">
+            <div class="dot">{{i.category}}</div>
+            <img src="{{i.image.url}}" alt="">
+            <div class="content">
+                <div class="title">{{i.name}}</div>
+                <div class="order">
+                    <div class="price">₹ {{i.price}} <br>
+                       
+                    </div>
+                    <button>ADD</button>
+                </div>
+
+                <p>Available from 11:00AM</p>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+
+
+
+
+
+
+    </div>
+
+</div>
+</div>
+
+{% endblock %}
+

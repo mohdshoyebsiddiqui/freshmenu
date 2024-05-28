@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'front/style.css' %}">
+    <link rel="stylesheet" href="{% static 'front/style-mobile.css' %}">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<style>
+    #cart span{
+        position: absolute;
+        top:0px;
+        right:0px;
+        background-color: tomato;
+        padding:5px 10px ;
+        border-radius:50%;
+    }
+    .price i{
+        color:grey;
+    }
+
+</style>
+
+    <!-- cart -->
+
+
+    <div class="cart">
+        <div class="top-cart">
+            <h3>Your Cart</h3>
+            <button id="close"> <i class="fa-solid fa-close"></i></button>
+        </div>
+
+        {% if cart %}
+
+        <div class="cart-product" style="padding-top: 100px;">
+            {% for i in cart %}
+            <div class="top-product">
+                <h3>{{i.name}}</h3>
+                <div class="btn-box">
+                    <a href="{% url 'cartplus' i.id %}"><button>  +</button></a>
+                    <p>{{i.quantity}}</p>
+                    <a href="{% url 'cartminus' i.id %}"><button>  -</button></a>
+                </div>
+            </div>
+            <div class="price">₹{{i.price}} </div>
+            {% endfor %}
+
+
+            <button style="margin-top: 50px;" class="checkout"><a style="color:#fff" href="{% url 'orderplaced' %}">Place Order - {{total}} </a></button>
+            <div class="safety">
+                <p>Safety Assured meals and contactless delivery</p>
+            </div>
+        </div>
+
+        {% else %}
+
+        <div class="empty-cart">
+            <img src="https://www.freshmenu.com/pages/menu/images/ghost1.1.svg" alt="">
+            <h3>Your cart is empty.</h3>
+            <p>Add some delicious food available on our menu to checkout.</p>
+            <button>Browse Food </button>
+        </div>
+
+        {% endif %}
+
+
+       
+    </div>
+
+
+    <!-- Header -->
+
+    <div class="header">
+        <div class="container head">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <img src="https://www.freshmenu.com/images/fm-header-logo.svg" alt=""></a>
+                    <h3>Deliver to : <span>Bhopal</span></h3>
+            </div>
+
+
+            <div class="navbar">
+                <ul id="menu">
+                    <li><a href="{% url 'search' %}"> <i class="fa-solid fa-magnifying-glass"></i> Search </a></li>
+                    <li><a href="">Offer</a></li>
+                    <li><a href="ss"><i class="fa-solid fa-handshake-angle"></i></a></li>
+                    <li><a href=""><i class="fa-solid fa-user"></i></a>
+                        {% if user.is_authenticated %}
+                        <ul>
+                            <li><a href="{% url 'profile' %}">Profile</a></li>
+                            <li><a href="{% url 'oldhistory' %}">Old History</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                            <li><a href="{% url 'friend' %}">Friend</a></li>
+                            <li><a href="{% url 'userlist' %}">Followed</a></li>
+                        </ul>
+                        {% else %}
+                        <ul>
+                            <li><a href="{% url 'signin' %}">Signin</a></li>
+                            <li><a href="{% url 'signup' %}">Signup</a></li>
+
+                        </ul>
+                        {% endif %}
+
+
+                    </li>
+                    <li ><a href="{% url 'wishlist' %}"><i class="fa-solid fa-heart"></i>  </a></li>
+
+                    <li id="cart"><a><i class="fa-solid fa-cart-shopping"></i> <span>{{totalcart}}</span> </a></li>
+                </ul>
+            </div>
+
+            <button id="btnmenu"> <i class="fa-solid fa-bars"></i></button>
+
+        </div>
+    </div>

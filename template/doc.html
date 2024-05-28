@@ -1,0 +1,348 @@
+<!--
+    Project Name - Fresh Menu
+
+
+    MAin - sitemap 
+    Index - 
+    search 
+    single product page
+    cart - ( model )
+    checkout 
+    signin / signup 
+    profile 
+    order page - ( old order , current order )
+
+
+
+
+
+
+    
+
+
+    index 
+
+
+    header 
+        top-nav
+        navber 
+
+
+
+
+    footer
+        left-foot
+        right-foot
+
+
+    .main
+        filter-section
+        product-section
+            left-cate
+            right-product
+
+
+
+
+
+
+
+  8888888888888      details   88888888888888
+
+
+      header 
+        top-nav
+            logo
+                image
+                delivery
+            navber 
+                ul
+                    li*5 - a
+
+
+
+      footer (flex)
+        .left-foot (flex )
+            .foot-box*3
+                h3
+                ul >li *4 >a
+
+        .right-foot
+            p
+            input
+            .social ( flex)
+             > img*2 + icon*3 
+
+
+
+
+    .main
+        .filter-section(flex)
+            h2
+            .filter (flex)
+                .veg
+                .price
+                .filters
+
+
+        product-section (flex)
+            left-cate
+                ul>li*5>a
+            right-products 
+                h1
+                .products (flex )
+                    .card
+                        .dot
+                        img
+                        .content
+                            title
+                            order (flex)
+                                price
+                                button
+                            p
+                        
+
+
+
+
+        .signup
+            .form-box
+                .social-login
+                    facebook
+                    google
+                line-text
+                    line
+                    h3
+                    line
+                input*5
+                button
+                bottom-line
+                p
+
+
+
+
+    .cart
+        top-cart
+            h3
+            button
+        .empty-cart
+            img
+            h3
+            p
+            button
+        .cart-product
+            h3
+            btn-box
+                button
+                text
+                button
+            price
+            button 
+            .safety
+                p
+
+
+
+    single-product
+        .single-left
+            img
+            social-icon
+        .single-right
+            h2
+            p.cont
+            price - del - span
+            button
+            p.btn-bottom
+            h2
+            p
+            h2
+            p
+            h2
+            .nutri
+                nutri-box *6
+                    h1
+                    p
+
+
+
+
+   index
+        menu
+            ( logo - button )
+        category 
+            (  filter button)
+        product
+            ( sidebar hide - filter pr click )( single product )
+        footer             
+            ( single box )    
+
+
+
+    checkout
+        checkout-left
+            logged
+                left
+                    h2
+                    p - br
+                right
+                    p - span
+
+                    
+
+
+            delivery
+                h2
+                address-form
+                    address
+                    mobile
+                    label
+                    address-group*3
+                        abbdress-box
+                    submit.button
+            payment
+                h2
+            payment-icon
+                p
+                payment-box
+                    img
+                    img
+
+        checkout-right
+            delivery-time
+                h2
+                p - br
+                p - span
+
+            product-check
+                h2
+                cart 
+                    left
+                    right
+
+            help-center
+                h2
+                a - h1
+                p
+
+
+
+
+
+
+
+
+
+
+
+
+    Profile
+        profile-nav
+            img
+            h2
+            ul>li*2>a
+
+        profile-details
+            p
+            table
+            4 row - 2 column
+
+
+
+
+            post system
+            ( page design karna padega )
+
+            model - post 
+                user
+                title
+                des
+                image
+
+
+                Post like
+                    user
+                    post(id)
+                    like
+
+
+-->
+
+
+
+<!--
+    backend
+
+urls - 
+    front ( )
+        Index - '' -  home ( http://127./) {'index.html'}
+        search - 'search' - search ( http://localhost/search) {search.html }
+        product - 'product\<str>' - product ( http://localhost/product) {product.html}
+        cart - 'cart' - cart ( http://localhost/cart) {#cart}
+        checkout - 'checkout' - checkout ( http://localhost/checkout) {checkout.html}
+        signin / signup  - 'signin' - signin - 'signup' - signup ( http://localhost/signin)
+        profile - 'profile' - profile ( http://localhost/profile) {profile.html}
+        order - 'order' - order ( http://localhost/order) {order.html}
+
+        setting
+        app register 
+        static_files
+        template settings 
+        
+        ( partial) -(include ) navbar.html , footer.html  
+            (page template -  extend )
+
+
+
+    dashboard - tempalte - ( dashboard)
+            dashboard - '' - dashboard ('dashboard.html')
+            category 
+            create , edit , delete , view 
+            product
+            create , edit , delete , view
+
+            user 
+            view , delete
+            order
+            current (action) , old ,cancel
+            view
+
+
+        database (model)
+            category
+                name
+
+            product
+                name
+                image
+                ingrdient
+                category (forign)
+                price
+                des
+
+            user ( inbuilt user )
+                first name
+                last name
+                email 
+                password
+                mobile (add)
+
+               front -  search page / single page 
+
+            cart
+
+            order
+
+            
+            
+django.utilities timezone.now()
+
+model order
+productname - 
+price - 
+date - 
+user - forign key
+
+
+
+-->
